@@ -17,7 +17,8 @@ var Calculadora = {
 
 	eventPresionarTecla: function(event){
 		if(event.target.id == "1" || event.target.id == "2" || event.target.id == "3"||  event.target.id == "4" || event.target.id == "5" || event.target.id == "6" || event.target.id == "7" || event.target.id == "8" || event.target.id == "9" || event.target.id == "0") {
-			mostrarNumero(event.target.id)
+			mostrarNumero(event.target.id);
+			//return 0;
 		}
 
 		if(event.target.id == "on")
@@ -41,7 +42,7 @@ var Calculadora = {
 		if(event.target.id == "dividido")
 			dividir("/");
 
-		if(event.targt.id == "igual")
+		if(event.target.id == "igual")
 			mostrarRespuesta();
 
 		disminuirTecla(event.target);
@@ -73,23 +74,22 @@ function sumar(signo){
 	concatenarOperador(signo);
 }
 
-function restar(){
+function restar(signo){
 	concatenarOperador(signo);
 }
 
-function multiplicar(){
+function multiplicar(signo){
 	concatenarOperador(signo);
 }
 
-function dividir(){
+function dividir(signo){
 	concatenarOperador(signo);
 }
 
 function mostrarRespuesta(){
 	if(Calculadora.cadena == "")
 		document.getElementById('display').innerHTML = "0";
-	else 
-		if(Calculadora.cadena == 'XXX'){
+	else if(Calculadora.cadena == 'XXX'){
 			Calculadora.cadena = document.getElementById('display').innerHTML + Calculadora.ultOp;
 			document.getElementById('display').innerHTML = actualizarResultado();
 			Calculadora.cadena = 'XXX';
@@ -99,6 +99,7 @@ function mostrarRespuesta(){
 				document.getElementById('display').innerHTML = actualizarResultado();
 				Calculadora.cadena = 'XXX';
 		}
+	
 }
 
 function actualizarResultado(){
@@ -151,7 +152,7 @@ function aumentarTecla(elementoDOM){
 }
 
 function disminuirTecla(elementoDOM){
-	elementoDOM.style.padding = "2px";
+	elementoDOM.style.padding = "4px";
 }
 
 Calculadora.init();
