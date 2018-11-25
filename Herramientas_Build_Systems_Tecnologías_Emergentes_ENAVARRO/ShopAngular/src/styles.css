@@ -1,0 +1,9 @@
+
+
+.background {
+  background-image: url('./assets/main-fondo.jpg');
+}
+
+body {
+  background-image: url('./assets/login-fondo.jpg');
+}
